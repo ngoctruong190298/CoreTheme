@@ -13,7 +13,7 @@ require_once get_template_directory() . '/inc/core/breadcrumb.php';
  * Get config from library
  */
 if ( ! function_exists( 'cct_get_option' ) ) {
-	function cct_get_option( $option_name = '', $default = '', $name = '_cct_options' ) {
+	function cct_get_option( $option_name = 'theme-options', $default = '', $name = 'theme-options' ) {
 		$options = get_option( $name );
 
 		if ( ! empty( $option_name ) && ! empty( $options[ $option_name ] ) ) {

@@ -2,10 +2,25 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
+if ( ! function_exists( 'cct_footer' ) ) {
+    function cct_footer() {
+        $footer_layout = cct_get_option( 'footer_layout', 'footer-1' );
 
+        if ( is_page() ) {
+            global $post;
+
+            $page_meta     = get_post_meta( $post->ID, '_page_options', true );
+            $footer_layout = ( cct_get_value_in_array( $page_meta, 'footer_page_setting' ) == 'custom' ) ? $page_meta['footer_layout'] : $footer_layout;
+        }
+
+        get_template_part( 'components/footer/' . $footer_layout );
+
+//		echo cct_mobile_menu();
+    }
+}
 /**
  * Footer area
- */
+// */
 if ( ! function_exists( 'cct_footer_area' ) ) {
 	function cct_footer_area( $slug = '_en' ) {
 		$html = array();
@@ -13,17 +28,17 @@ if ( ! function_exists( 'cct_footer_area' ) ) {
 		$footer_option = cct_get_option( 'footer_oc_option' );
 		//== [ Option Slug ]
 		$logo      = cct_get_value_in_array( $footer_option, 'logo' . $slug ) ? cct_get_value_in_array( $footer_option, 'logo' . $slug ) : array( 'url' => '' );
-		$contact   = cct_get_value_in_array( $footer_option, 'contact' . $slug );
-		$menu_1    = cct_get_value_in_array( $footer_option, 'menu_1' . $slug );
-		$menu_2    = cct_get_value_in_array( $footer_option, 'menu_2' . $slug );
+//		$contact   = cct_get_value_in_array( $footer_option, 'contact' . $slug );
+//		$menu_1    = cct_get_value_in_array( $footer_option, 'menu_1' . $slug );
+//		$menu_2    = cct_get_value_in_array( $footer_option, 'menu_2' . $slug );
 		$socials   = cct_get_value_in_array( $footer_option, 'socials' . $slug );
 		$address   = cct_get_value_in_array( $footer_option, 'address' . $slug );
 		$payments  = cct_get_value_in_array( $footer_option, 'payment' . $slug );
 		$copyright = cct_get_value_in_array( $footer_option, 'copyright' . $slug );
 
 		//== [ Config Option ]
-		$menu_1_item = wp_get_nav_menu_items( $menu_1['menu_chose'], array( 'order' => 'DESC' ) );
-		$menu_2_item = wp_get_nav_menu_items( $menu_2['menu_chose'], array( 'order' => 'DESC' ) );
+//		$menu_1_item = wp_get_nav_menu_items( $menu_1['menu_chose'], array( 'order' => 'DESC' ) );
+//		$menu_2_item = wp_get_nav_menu_items( $menu_2['menu_chose'], array( 'order' => 'DESC' ) );
 
 		$html[] = '<footer class="cct-footer">';
 		$html[] = '<div class="main-footer">';
@@ -37,8 +52,8 @@ if ( ! function_exists( 'cct_footer_area' ) ) {
 		//===============================================[ Column ]=====================================================
 		$html[] = '<div class="col">';
 		$html[] = '<div class="contact-wrapper">';
-		$html[] = '<h4 class="widget-title">' . $contact['widget_title'] . '</h4>';
-		$html[] = do_shortcode( shortcode_unautop( '[contact-form-7 id="' . $contact['form_id'] . '"]' ) );
+//		$html[] = '<h4 class="widget-title">' . $contact['widget_title'] . '</h4>';
+//		$html[] = do_shortcode( shortcode_unautop( '[contact-form-7 id="' . $contact['form_id'] . '"]' ) );
 		$html[] = '</div>';
 		$html[] = '</div>';
 
@@ -50,52 +65,52 @@ if ( ! function_exists( 'cct_footer_area' ) ) {
 		//===============================================[ Column ]=====================================================
 		$html[] = '<div class="col">';
 		$html[] = '<div class="menu-footer">';
-		$html[] = '<h4 class="widget-title">' . $menu_1['widget_title'] . '</h4>';
-		if ( $menu_1_item ) {
-			$html[] = '<ul class="menu-nav list-style-type pdm-0">';
-			foreach ( $menu_1_item as $item ) {
-				$html[] = '<li class="menu-item"><a href="' . $item->url . '"><span>' . $item->title . '</span></a></li>';
-			}
-			$html[] = '</ul>';
-		}
+//		$html[] = '<h4 class="widget-title">' . $menu_1['widget_title'] . '</h4>';
+//		if ( $menu_1_item ) {
+//			$html[] = '<ul class="menu-nav list-style-type pdm-0">';
+//			foreach ( $menu_1_item as $item ) {
+//				$html[] = '<li class="menu-item"><a href="' . $item->url . '"><span>' . $item->title . '</span></a></li>';
+//			}
+//			$html[] = '</ul>';
+//		}
 		$html[] = '</div>';
 		$html[] = '</div>';
 
 		//===============================================[ Column ]=====================================================
 		$html[] = '<div class="col">';
 		$html[] = '<div class="menu-footer">';
-		$html[] = '<h4 class="widget-title">' . $menu_2['widget_title'] . '</h4>';
-		if ( $menu_2_item ) {
-			$html[] = '<ul class="menu-nav list-style-type pdm-0">';
-			foreach ( $menu_2_item as $item ) {
-				$html[] = '<li class="menu-item"><a href="' . $item->url . '"><span>' . $item->title . '</span></a></li>';
-			}
-			$html[] = '</ul>';
-		}
+//		$html[] = '<h4 class="widget-title">' . $menu_2['widget_title'] . '</h4>';
+//		if ( $menu_2_item ) {
+//			$html[] = '<ul class="menu-nav list-style-type pdm-0">';
+//			foreach ( $menu_2_item as $item ) {
+//				$html[] = '<li class="menu-item"><a href="' . $item->url . '"><span>' . $item->title . '</span></a></li>';
+//			}
+//			$html[] = '</ul>';
+//		}
 		$html[] = '</div>';
 		$html[] = '</div>';
 
 		//===============================================[ Column ]=====================================================
 		$html[] = '<div class="col">';
 		$html[] = '<div class="socials-footer">';
-		$html[] = '<h4 class="widget-title">' . $socials['widget_title'] . '</h4>';
-		if ( $socials['social_item'] ) {
-			$html[] = '<ul class="socials-list list-style-type pdm-0">';
-			foreach ( $socials['social_item'] as $social ) {
-				switch ( $social['social_type'] ) {
-					case 'facebook':
-						$icon = 'facebook-f"';
-						break;
-					case 'pinterest':
-						$icon = 'pinterest-p';
-						break;
-					default:
-						$icon = $social['social_type'];
-				}
-				$html[] = '<li class="social ' . $social['social_type'] . '"><a href="' . $social['social_link'] . '" target="_blank"><i class="fab fa-' . $icon . '"></i></a></li>';
-			}
-			$html[] = '</ul>';
-		}
+//		$html[] = '<h4 class="widget-title">' . $socials['widget_title'] . '</h4>';
+//		if ( $socials['social_item'] ) {
+//			$html[] = '<ul class="socials-list list-style-type pdm-0">';
+//			foreach ( $socials['social_item'] as $social ) {
+//				switch ( $social['social_type'] ) {
+//					case 'facebook':
+//						$icon = 'facebook-f"';
+//						break;
+//					case 'pinterest':
+//						$icon = 'pinterest-p';
+//						break;
+//					default:
+//						$icon = $social['social_type'];
+//				}
+//				$html[] = '<li class="social ' . $social['social_type'] . '"><a href="' . $social['social_link'] . '" target="_blank"><i class="fab fa-' . $icon . '"></i></a></li>';
+//			}
+//			$html[] = '</ul>';
+//		}
 		$html[] = '</div>';
 		$html[] = '</div>';
 
@@ -125,9 +140,9 @@ if ( ! function_exists( 'cct_footer_area' ) ) {
 		//===============================================[ Column ]=====================================================
 		$html[] = '<div class="col-12 col-md-6 col-lg-5">';
 		$html[] = '<div class="payment-logo">';
-		foreach ( $payments as $payment ) {
-			$html[] = '<div class="pay-img"><img src="' . $payment['payment_logo']['url'] . '" alt=""></div>';
-		}
+//		foreach ( $payments as $payment ) {
+//			$html[] = '<div class="pay-img"><img src="' . $payment['payment_logo']['url'] . '" alt=""></div>';
+//		}
 		$html[] = '</div>';
 		$html[] = '</div>';
 
@@ -138,4 +153,49 @@ if ( ! function_exists( 'cct_footer_area' ) ) {
 
 		return implode( "\n", $html );
 	}
+}
+
+if(!function_exists('cct_footer_japan')){
+    function cct_footer_japan(){
+        $html = array();
+
+        $copyright = cct_get_option('copyright');
+//        $numberfooter = cct_get_option('number-footer');
+
+//        $html[] = '<footer class=" cct-footer">';
+//        $html[] = '<div class="container ">';
+//        $html[] = '<div class="main-footer row">';
+//        if($numberfooter > 0) {
+//            $html[] = '<div class="main-footer-1 col-md-4">';
+//            if (is_active_sidebar('footer-logo')) {
+//                $html[] = '<div>' . dynamic_sidebar('footer-logo') . '</div>';
+//            }
+//            if (is_active_sidebar('footer-logo-text')) {
+//                $html[] = dynamic_sidebar('footer-logo-text');
+//            }
+//            $html[] = '</div>';
+//        }
+//        if ($numberfooter>1) {
+//            $html[] = '<div class="main-footer-2 col-md-4">';
+//            if (is_active_sidebar('footer-link')) {
+//                $html[] = dynamic_sidebar('footer-link');
+//            }
+//            $html[] = '</div>';
+//        }if ($numberfooter>2) {
+//            $html[] = '<div class="main-footer-3 col-md-4">';
+//            if (is_active_sidebar('footer-post')) {
+//                $html[] = dynamic_sidebar('footer-post');
+//            }
+//            $html[] = '</div>';
+//        }
+//        $html[] = '</div>';
+//        $html[] = '</div>';
+
+        $html[] = '<div class="copyright">';
+        $html[] =  '<p>' . $copyright . '</p>';
+        $html[] = '</div>';
+//        $html[] = '</footer>';
+
+        return implode( "\n", $html );
+    }
 }

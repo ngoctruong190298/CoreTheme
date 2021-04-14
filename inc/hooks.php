@@ -48,3 +48,63 @@ if (! function_exists('cct_action_add_theme_support')) {
 
 	add_action('after_setup_theme', 'cct_action_add_theme_support');
 }
+if (! function_exists('theme_widgets_init')) {
+    function theme_widgets_init()
+    {
+        register_sidebar(array(
+            'name' => __('Footer Widget logo'),
+            'id' => 'footer-logo',
+            'description' => __('Insert logo'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+        ));
+    }
+
+    add_action('widgets_init', 'theme_widgets_init');
+
+}
+if (! function_exists('theme_widgets_init1')) {
+    function theme_widgets_init1()
+    {
+        register_sidebar(array(
+            'name' => __('Footer Widget text'),
+            'id' => 'footer-logo-text',
+            'description' => __('Insert logo text'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+        ));
+    }
+
+    add_action('widgets_init', 'theme_widgets_init1');
+}
+if (! function_exists('theme_widgets_init2')) {
+    function theme_widgets_init2()
+    {
+        register_sidebar(array(
+            'name' => __('Footer Widget Link'),
+            'id' => 'footer-link',
+            'description' => __('Insert title and link'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+        ));
+    }
+
+    add_action('widgets_init', 'theme_widgets_init2');
+
+}
+if (! function_exists('theme_widgets_init3')) {
+    function theme_widgets_init3()
+    {
+        register_sidebar(array(
+            'name' => __('Footer Widget Area Post'),
+            'id' => 'footer-post',
+            'description' => __('Appears in the post'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ));
+    }
+
+    add_action('widgets_init', 'theme_widgets_init3');
+}

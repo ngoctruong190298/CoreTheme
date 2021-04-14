@@ -1,0 +1,184 @@
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1550px;
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.cct-header{
+    background: #fff;
+    padding: 22px 0;
+}
+.cct-inner{
+    align-items: center;
+}
+
+.cct-site-logo{
+    line-height: 10%;
+}
+
+.main-nav, menu-item{
+    list-style: none;
+
+}
+
+.main-nav li{
+    padding: 0 1.9271vw 0 1.25vw;
+}
+.main-nav li:first-child{
+    padding-left: 0;
+}
+.main-nav li:last-child{
+    padding-right: 0;
+}
+.menu-item a{
+
+    font-family: Poppins;
+    font-size: 18px;
+    color: #303030;
+    text-decoration: none;
+}
+.h-right{
+}
+.account-handle{
+    padding: 0px 1.5875vw 0 1.62708333vw;
+}
+.cct-h-search{
+    margin: 5px -2px 0 0;
+}
+
+.account-handle{
+    margin: 2px -1px 0 0;
+}
+
+.cct-icon-cart{
+    margin-top: 4px;
+}
+.cct-icon-cart a{
+    text-decoration: none;
+    border: 1px solid #000;
+    padding: 0.88125vw 0.625vw 0.78125vw 1.30208333vw;
+    border-radius: 25px;
+    background: #1f9beb;
+}
+.cct-icon-cart span{
+    padding-left: 4px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.cct-icon-cart i{
+    font-size: 23px;
+    color: #F2F2F2;
+    margin: 0px 0px 0 -8px;
+}
+.hero{
+    position: relative;
+    height: 250px;
+}
+.hero-inner{
+    max-width: 1200px;
+    text-align: center;
+    padding-top: 3%;
+}
+.hero-inner h2 a{
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 45px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hero-inner p{
+    font-size: 18px;
+    color: #fff3cd;
+}
+.cct-breadcrumbs{
+    list-style: none;
+
+}
+.li-breadcrumbs ul{
+    display: inline-flex;
+}
+/*.cct-breadcrumbs li{*/
+/*    padding-right: 0.3375vw;*/
+/*}*/
+
+.cct-breadcrumbs a {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 18px;
+    text-decoration: none;
+}
+.cct-breadcrumbs span {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+@media (max-width: 1588px) {
+    .main-nav li{
+        padding: 0 0.4208vw 0 0.8125vw;
+    }
+
+    .cct-icon-cart a {
+        padding: 0.88125vw;
+    }
+
+}
+@media (max-width: 1277px) {
+    .main-nav li{
+
+        padding: 0 0.6208vw 0 0.68125vw;
+    }
+    .menu-item a{
+        font-size: 14px;
+    }
+    .cct-icon-cart {
+        margin-top: 6px;
+    }
+    .cct-icon-cart i{
+        font-size: 18px;
+    }
+    .cct-icon-cart span{
+        font-size: 14px;
+    }
+    .cct-icon-cart a {
+        padding: 0.88125vw;
+    }
+
+}
+
+@media (max-width: 1090px) {
+    .main-nav li{
+        padding: 0 0.3208vw 0 0.3208vw;
+    }
+
+}
+@media (max-width: 1003px) {
+    .main-nav li {
+        padding: 0 0 0 0.3208vw;
+    }
+
+}
+
+@media (max-width: 991px) {
+    .cct-site-logo img{
+        margin-left: 25px;
+    }
+}
+@media (max-width: 760px) {
+    .hamburger-menu-mobile{
+        margin-top: 20px;
+    }
+    .cct-site-logo img{
+        margin-left: 55px;
+        margin-top: 20px;
+    }
+
+}
+

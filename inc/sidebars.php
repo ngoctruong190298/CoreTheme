@@ -19,32 +19,7 @@ register_sidebar(array(
 /**
  * Footer Widget
  */
-$footer_widgets	= cct_get_option('footer_widgets');
-
-if ($footer_widgets ) {
-	$length	= 0;
-
-	switch ($footer_widgets) {
-		case 5:
-			$length	= 6;
-			break;
-		case 6:
-		case 7:
-		case 8:
-			$length	= 3;
-			break;
-		case 9:
-		case 10:
-			$length	= 4;
-			break;
-		default:
-			$length	= $footer_widgets;
-			break;
-	}
-
-	for ($i = 0; $i < $length; $i++) {
-		$num	= $i + 1;
-
+		$num	= 3;
 		register_sidebar(array(
 			'id'			=> 'footer-' . $num,
 			'name'			=> sprintf(esc_html__('Footer Widgets %d', 'cct'), $num),
@@ -54,8 +29,7 @@ if ($footer_widgets ) {
 			'before_title'	=> '<div class="cct-widget-title"><h4>',
 			'after_title'	=> '</h4></div>',
 		));
-	}
-}
+
 
 if (class_exists('WooCommerce')) {
 	/**

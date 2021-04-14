@@ -32,7 +32,7 @@ if (!function_exists('cct_get_breadcrumb_items')) {
 
 		/* Link to front page. */
 		if (!is_front_page()) {
-			$item[] = '<li><a href="' . esc_url(home_url('/')) . '" class="home">' . esc_html__('Home', 'cct') . '</a></li>';
+			$item[] = '<li><a href="' . esc_url(home_url('/')) . '" class="home">' . esc_html__('Home', 'cct') . ' ></a></li>';
 		}
 
 		/* If bbPress is installed and we're on a bbPress page. */
@@ -248,7 +248,7 @@ if (!function_exists('cct_breadcrumb_get_term_parents')) {
 
 		while ($parent_id) {
 			$parent = get_term($parent_id, $taxonomy);
-			$parents[] = '<li><a href="' . esc_url(get_term_link($parent, $taxonomy)) . '" title="' . esc_attr($parent->name) . '">' . $parent->name . '</a></li>';
+			$parents[] = '<li><a href="' . esc_url(get_term_link($parent, $taxonomy)) . '" title="' . esc_attr($parent->name) . '">' . $parent->name . ' ></a></li>';
 			$parent_id = $parent->parent;
 		}
 
